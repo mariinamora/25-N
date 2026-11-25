@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>25N: La música nos une</title>
+<meta name="description" content="II Ciclo de canciones contra la violencia de género: cada ciclo cantó para el resto del cole en el Día de la Eliminación de la Violencia contra la Mujer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=' js'</script>
+<style>
+/* ===== Colores y tipos del centro (editables aquí) ===== */
+:root{--navy:#1d1a3c;--navy2:#2b2757;--navy3:#3a3670;--blue:#93c0e3;--blue-d:#5d9acb;--sky:#e8f2fa;--ink:#262445;--mut:#5a5880;--mor:#7b3fa0;--mor2:#a566c9;--lila:#efe3f7;--lila2:#d9c1ea;--g:clamp(1rem,4vw,2.5rem);--r:1.25rem;--ease:cubic-bezier(.2,.7,.2,1);--serif:'Fraunces',Georgia,'Times New Roman',serif;--sans:'Open Sans',system-ui,Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font:400 clamp(1rem,.95rem + .25vw,1.125rem)/1.75 var(--sans);color:var(--ink);background:#fff;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,figure,ul,ol{margin:0;padding:0}ul,ol{list-style:none}
+img{display:block;max-width:100%}
+.wrap{width:100%;max-width:1040px;margin:0 auto;padding-inline:var(--g)}
+:focus-visible{outline:3px solid var(--mor2);outline-offset:3px;border-radius:6px}
+a{color:inherit}
+
+/* ===== Cabecera ===== */
+.hero{position:relative;overflow:hidden;color:#fff;background-color:var(--navy);background-image:radial-gradient(120% 90% at 85% 0%,#4a2a73 0%,transparent 60%),radial-gradient(circle,rgba(255,255,255,.07) 0 3px,transparent 4px);background-size:auto,38px 38px;padding:clamp(2.5rem,7vw,5.5rem) 0 clamp(5rem,12vw,9rem)}
+.hero .wrap{position:relative;z-index:2}
+.kick{display:inline-flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:center;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lila2)}
+.kick i{display:inline-block;width:2.2rem;height:3px;border-radius:3px;background:var(--mor2)}
+h1{margin-top:1rem;font:600 clamp(2.3rem,7.2vw,5rem)/1.04 var(--serif);letter-spacing:-.02em;text-wrap:balance;max-width:14ch}
+h1 em{font-style:italic;font-weight:500;color:#c79be6}
+.sub{margin-top:1.1rem;font:italic 600 clamp(1.15rem,2.4vw,1.6rem)/1.3 var(--serif);color:var(--lila2)}
+.lede{margin-top:1.2rem;max-width:54ch;font-size:clamp(1.05rem,1rem + .5vw,1.3rem);line-height:1.6;color:#e6dcf3;text-wrap:pretty}
+.deco{position:absolute;z-index:1;pointer-events:none}
+.d1{right:7%;top:8%;width:clamp(90px,17vw,210px);aspect-ratio:1;transform-origin:50% 20%;animation:lazo 6s ease-in-out infinite}
+.d2{right:28%;bottom:24%;width:clamp(56px,9vw,110px);aspect-ratio:1;animation:nota 4.5s ease-in-out infinite}
+.d3{right:3%;bottom:30%;width:clamp(60px,10vw,120px);aspect-ratio:1;animation:nota 5.2s ease-in-out infinite .8s}
+.d4{right:42%;top:6%;width:clamp(30px,5vw,56px);aspect-ratio:1;animation:nota 3.8s ease-in-out infinite .3s}
+.d5{right:17%;top:42%;width:clamp(36px,6vw,70px);aspect-ratio:1;transform-origin:50% 20%;animation:lazo 4.4s ease-in-out infinite reverse}
+@keyframes lazo{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+@keyframes nota{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+.ico{display:block;width:100%;height:100%}
+
+/* ===== Fotos ===== */
+.lead{margin-top:calc(-1 * clamp(3rem,8vw,6rem));position:relative;z-index:3}
+.ph{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:var(--lila);box-shadow:0 24px 60px -24px rgba(29,26,60,.55)}
+.ph button{all:unset;display:block;width:100%;height:100%;cursor:zoom-in}
+.ph button:focus-visible{outline:3px solid var(--mor2);outline-offset:-6px}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.ph:hover img{transform:scale(1.03)}
+.ph figcaption{position:absolute;inset:auto 0 0 0;padding:2.4rem 1.1rem .9rem;font-size:.88rem;line-height:1.4;color:#fff;background:linear-gradient(transparent,rgba(29,26,60,.88));pointer-events:none}
+.lead .ph{aspect-ratio:16/9}
+.lead .ph img{object-position:50% 50%}
+
+/* ===== Bloques ===== */
+section{padding-block:clamp(3rem,8vw,6rem)}
+h2{font:600 clamp(1.7rem,4.2vw,2.9rem)/1.12 var(--serif);letter-spacing:-.015em;color:var(--navy);text-wrap:balance}
+h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margin-top:.9rem;background:var(--mor2)}
+.prose p+p{margin-top:1.1rem}
+.prose p{max-width:62ch;text-wrap:pretty}
+.prose strong{color:var(--navy)}
+.aside{color:var(--mut);font-style:italic}
+.dos2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(1.6rem,5vw,4rem);align-items:center}
+.dos2 .ph{aspect-ratio:4/5}
+.dos2 .ph img{object-position:50% 38%}
+.cartel .ph{aspect-ratio:15/16;max-width:430px;margin-inline:auto;transform:rotate(1.5deg)}
+.cartel .ph img{object-position:50% 50%}
+.mini{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.mini span{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1rem .45rem .6rem;border-radius:99px;background:var(--lila);color:var(--mor);font-weight:700;font-size:.9rem}
+.mini svg{width:1.4rem;height:1.4rem}
+
+/* ===== Por qué el 25N ===== */
+.porque{position:relative;overflow:hidden;color:#fff;background-color:var(--navy);background-image:radial-gradient(circle,rgba(255,255,255,.07) 0 3px,transparent 4px);background-size:38px 38px}
+.porque .wrap{position:relative}
+.porque h2{color:#fff}
+.porque .grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(1.8rem,5vw,4rem);align-items:start;margin-top:1.6rem}
+.porque .prose p{color:#e6dcf3}.porque .prose strong{color:#fff}
+.hermanas{padding:clamp(1.4rem,3.4vw,2.2rem);border-radius:var(--r);background:rgba(255,255,255,.08);border:1px solid rgba(199,155,230,.4)}
+.hermanas small{display:block;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;color:var(--lila2)}
+.hermanas p{margin-top:.8rem;font:italic 500 clamp(1.3rem,3vw,1.9rem)/1.25 var(--serif);text-wrap:balance}
+.hermanas p b{color:#c79be6;font-weight:600}
+.hermanas ul{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.hermanas li{padding:.3rem .8rem;border-radius:99px;background:rgba(255,255,255,.1);font-weight:700;font-size:.88rem}
+.lazo-big{display:flex;align-items:center;gap:1.1rem;margin-top:1.6rem;padding:1rem 1.2rem;border-radius:1rem;background:rgba(255,255,255,.07);max-width:62ch}
+.lazo-big svg{flex:none;width:3.4rem;height:3.4rem}
+.lazo-big p{font-size:.97rem;line-height:1.55;color:#e6dcf3}
+
+/* ===== Canciones ===== */
+.songs h2{margin-bottom:.4rem}
+.songs .intro{margin-top:1.2rem;max-width:58ch;color:var(--mut)}
+.song{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,4.5vw,3.5rem);align-items:center;margin-top:clamp(2.6rem,6vw,4.5rem)}
+.song.rev .sfig{order:2}
+.tag{display:inline-flex;align-items:center;gap:.55rem;padding:.35rem .9rem .35rem .45rem;border-radius:99px;background:var(--mor);color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.tag svg{width:1.5rem;height:1.5rem;background:#fff;border-radius:50%;padding:.2rem}
+.song h3{margin-top:.9rem;font:600 clamp(1.5rem,3.4vw,2.3rem)/1.15 var(--serif);color:var(--navy);text-wrap:balance}
+.song .by{margin-top:.25rem;font-weight:700;color:var(--mor)}
+.song p.t{margin-top:.9rem;max-width:54ch;color:var(--mut);text-wrap:pretty}
+.sfig{display:grid;gap:clamp(.6rem,2vw,1rem)}
+.sfig.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sfig .ph{aspect-ratio:4/5}
+.sfig .ph.w{aspect-ratio:4/3}
+.sfig.two .ph:nth-child(2){margin-top:clamp(1rem,4vw,2.4rem)}
+.sfig .ph img{object-position:50% 42%}
+
+/* Reproductor del fragmento */
+.pl{margin-top:1.3rem;border-radius:1rem;overflow:hidden;background:var(--navy);color:#fff;box-shadow:0 18px 40px -24px rgba(29,26,60,.7)}
+.pl .scr{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy2),var(--mor))}
+.pl .scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.pl .scr iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.pl .go{all:unset;position:absolute;inset:0;display:grid;place-items:center;cursor:pointer}
+.pl .go:focus-visible{outline:3px solid var(--lila2);outline-offset:-6px}
+.pl .go span{display:grid;place-items:center;width:4.2rem;height:4.2rem;border-radius:50%;background:var(--mor2);box-shadow:0 12px 30px -8px rgba(0,0,0,.6);transition:transform .25s var(--ease),background .25s;animation:latido 2.4s ease-in-out infinite}
+.pl .go:hover span{background:#b87ad8;transform:scale(1.08)}
+.pl .go svg{width:1.7rem;height:1.7rem;margin-left:.15rem}
+.pl .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem .9rem;padding:.7rem 1rem;font-size:.86rem;line-height:1.35}
+.pl .bar b{font-weight:800;letter-spacing:.04em}
+.pl .bar a{color:var(--lila2);font-weight:700}
+.pl .stop{all:unset;cursor:pointer;color:var(--lila2);font-weight:700;text-decoration:underline}
+@keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+
+/* ===== 016 ===== */
+.ayuda{background:var(--lila);padding-block:clamp(2.5rem,6vw,4.5rem)}
+.ayuda .box{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.2rem,4vw,2.6rem);align-items:center}
+.ayuda .num{display:grid;place-items:center;min-width:clamp(120px,22vw,200px);aspect-ratio:1;border-radius:50%;background:var(--mor);color:#fff;font:700 clamp(2.6rem,7vw,4.6rem)/1 var(--serif);box-shadow:0 0 0 10px rgba(123,63,160,.15)}
+.ayuda h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}
+.ayuda ul{margin-top:1.2rem;display:grid;gap:.55rem}
+.ayuda li{position:relative;padding-left:1.7rem;max-width:62ch;color:var(--ink);text-wrap:pretty}
+.ayuda li::before{content:"";position:absolute;left:0;top:.5em;width:.8rem;height:.8rem;border-radius:50%;background:var(--mor2)}
+.ayuda .nota{margin-top:1.2rem;font-size:.92rem;color:var(--mut);max-width:62ch}
+
+/* ===== Cierre ===== */
+.thanks{position:relative;overflow:hidden;color:#fff;background-color:var(--navy);background-image:radial-gradient(circle,rgba(255,255,255,.07) 0 3px,transparent 4px);background-size:38px 38px;padding-block:clamp(3rem,8vw,5.5rem)}
+.thanks .wrap{position:relative}
+.thanks h2{color:#fff}
+.thanks p{margin-top:1.4rem;max-width:58ch;font-size:clamp(1.05rem,1rem + .4vw,1.25rem);line-height:1.65;color:#e6dcf3;text-wrap:pretty}
+.tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.thanks .tags span{padding:.45rem 1rem;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(199,155,230,.45);font-weight:700;font-size:.9rem}
+.thanks .sign{margin-top:1.6rem;font-weight:700;color:var(--lila2);letter-spacing:.03em}
+.thanks .deco{opacity:.35}
+
+/* ===== Visor de fotos ===== */
+.lb{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:1rem;background:rgba(15,13,36,.92)}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:86vh;border-radius:12px}
+.lb p{position:absolute;left:0;right:0;bottom:.8rem;text-align:center;color:#e6dcf3;font-size:.9rem;padding-inline:1rem;margin:0}
+.lb button{position:absolute;top:.8rem;right:.8rem;width:2.8rem;height:2.8rem;border:0;border-radius:50%;background:#fff;color:var(--navy);font-size:1.5rem;font-weight:700;cursor:pointer}
+
+/* ===== Aparición ===== */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--dl,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ===== Adaptación ===== */
+@media(max-width:980px){
+  .dos2,.porque .grid,.song{grid-template-columns:minmax(0,1fr)}
+  .song.rev .sfig{order:0}
+  .dos2 .ph{aspect-ratio:4/3;max-width:560px}
+  .sfig .ph{aspect-ratio:4/3}
+  .sfig.two .ph{aspect-ratio:4/5}
+}
+@media(max-width:700px){
+  .lead .ph{aspect-ratio:4/3}
+  h1{max-width:none}
+  .d2,.d3,.d4,.d5{display:none}
+  .d1{top:3%;right:-12px;width:100px;opacity:.3}
+  .ayuda .box{grid-template-columns:minmax(0,1fr);justify-items:start}
+  .ayuda .num{min-width:0;width:130px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- Dibujos propios, decorativos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- lazo morado -->
+    <symbol id="lazo" viewBox="0 0 64 64">
+      <path d="M32 6C19 6 15 21 25 31L44 58" fill="none" stroke="#7b3fa0" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 6C45 6 49 21 39 31L20 58" fill="none" stroke="#a566c9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 6C19 6 15 21 25 31" fill="none" stroke="#c79be6" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+    </symbol>
+    <!-- corchea morada -->
+    <symbol id="corchea" viewBox="0 0 64 64">
+      <ellipse cx="22" cy="50" rx="11" ry="8" transform="rotate(-22 22 50)" fill="#7b3fa0"/>
+      <path d="M31 47V9" stroke="#7b3fa0" stroke-width="5" stroke-linecap="round"/>
+      <path d="M31 9C36 19 52 20 49 38C46 30 40 29 31 28Z" fill="#a566c9" stroke="#a566c9" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+    <!-- corchea clara (para fondos oscuros) -->
+    <symbol id="corchea-c" viewBox="0 0 64 64">
+      <ellipse cx="22" cy="50" rx="11" ry="8" transform="rotate(-22 22 50)" fill="#c79be6"/>
+      <path d="M31 47V9" stroke="#c79be6" stroke-width="5" stroke-linecap="round"/>
+      <path d="M31 9C36 19 52 20 49 38C46 30 40 29 31 28Z" fill="#e3c9f4" stroke="#e3c9f4" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+    <!-- lazo claro -->
+    <symbol id="lazo-c" viewBox="0 0 64 64">
+      <path d="M32 6C19 6 15 21 25 31L44 58" fill="none" stroke="#a566c9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 6C45 6 49 21 39 31L20 58" fill="none" stroke="#c79be6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- clave de sol -->
+    <symbol id="clave" viewBox="0 0 64 64">
+      <path d="M34 4C26 12 26 24 33 34C40 44 38 56 30 58C22 60 18 52 24 48C30 44 38 48 40 40C42 30 24 28 22 38" fill="none" stroke="#a566c9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- play -->
+    <symbol id="play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="#fff"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===== CABECERA ===== -->
+<header class="hero">
+  <svg class="deco d1" aria-hidden="true"><use href="#lazo-c"/></svg>
+  <svg class="deco d2" aria-hidden="true"><use href="#corchea-c"/></svg>
+  <svg class="deco d3" aria-hidden="true"><use href="#clave"/></svg>
+  <svg class="deco d4" aria-hidden="true"><use href="#corchea-c"/></svg>
+  <svg class="deco d5" aria-hidden="true"><use href="#lazo-c"/></svg>
+  <div class="wrap">
+    <p class="kick"><i></i>25N · Día contra la violencia hacia la mujer</p>
+    <h1>La música <em>nos une</em></h1>
+    <p class="sub">II Ciclo de canciones contra la violencia de género</p>
+    <p class="lede">Este 25 de noviembre el patio se llenó de música, de lazos morados y de mensajes que importan. Cada ciclo preparó una canción para cantársela al resto del cole.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== FOTO PRINCIPAL ===== -->
+  <div class="wrap lead">
+    <figure class="ph rv">
+      <button type="button" data-lb aria-label="Ampliar foto: el mural «La música nos une»">
+        <img src="img/mural.jpg" width="1400" height="945" alt="Mural del patio con el título «La música nos une», una clave de sol, notas musicales y lazos morados, orlado de círculos de colores." loading="eager" decoding="async">
+      </button>
+      <figcaption>«La música nos une», por la igualdad y los buenos tratos.</figcaption>
+    </figure>
+  </div>
+
+  <!-- ===== INTRO ===== -->
+  <section>
+    <div class="wrap dos2">
+      <div class="prose rv">
+        <h2>Cuando la música se pone morada</h2>
+        <p>Unimos dos celebraciones en una: el <strong>Día de la Música</strong> y el <strong>Día Internacional de la Eliminación de la Violencia contra la Mujer</strong>. Y salió una mañana preciosa.</p>
+        <p>La idea es sencilla: <strong>cada ciclo interpreta una canción sobre el tema para el resto del alumnado</strong>. Se ensaya, se canta, se baila y, sobre todo, se aprende que se puede hablar de cosas serias con música y con la cabeza bien alta.</p>
+        <p>Este año ha sido la <strong>segunda edición</strong> del ciclo de canciones. Y, a juzgar por los aplausos, no será la última.</p>
+        <div class="mini"><span><svg aria-hidden="true"><use href="#lazo"/></svg>Por la igualdad</span><span><svg aria-hidden="true"><use href="#corchea"/></svg>Por los buenos tratos</span></div>
+      </div>
+      <div class="cartel rv" style="--dl:.1s">
+        <figure class="ph">
+          <button type="button" data-lb aria-label="Ampliar foto: cartel morado con tres puños alzados">
+            <img src="img/cartel.jpg" width="938" height="1000" alt="Cartel morado con tres puños alzados rodeados de flores y corazones, colgado en la pared del patio." loading="lazy" decoding="async">
+          </button>
+          <figcaption>El cartel del patio: tres puños, muchas flores y mucha fuerza.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POR QUÉ EL 25N ===== -->
+  <section class="porque">
+    <div class="wrap">
+      <h2 class="rv">¿Por qué el 25 de noviembre?</h2>
+      <div class="grid">
+        <div class="prose rv">
+          <p>Porque un 25 de noviembre de 1960 fueron asesinadas en la República Dominicana las <strong>hermanas Mirabal</strong>: Patria, Minerva y María Teresa, tres mujeres que se atrevieron a plantar cara a la dictadura de Trujillo.</p>
+          <p>En 1999, la <strong>Asamblea General de la ONU</strong> proclamó esta fecha como el Día Internacional de la Eliminación de la Violencia contra la Mujer, en su memoria y en la de todas las mujeres que sufren violencia. Desde entonces, cada 25N el mundo se tiñe de morado.</p>
+          <p>Y en el cole lo tenemos claro: educar en <strong>igualdad y buenos tratos</strong> desde pequeños es la mejor forma de que este día algún día deje de hacer falta.</p>
+        </div>
+        <aside class="hermanas rv" style="--dl:.1s">
+          <small>Tres nombres para recordar</small>
+          <p>Las <b>hermanas Mirabal</b>, símbolo de valentía.</p>
+          <ul><li>Patria</li><li>Minerva</li><li>María Teresa</li></ul>
+        </aside>
+      </div>
+      <div class="lazo-big rv"><svg aria-hidden="true"><use href="#lazo-c"/></svg><p>El <strong>lazo morado</strong> es el símbolo con el que muchas personas muestran su rechazo a la violencia machista. Por eso lo llevamos puesto, en la ropa y en el mural.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== CANCIONES ===== -->
+  <section class="songs">
+    <div class="wrap">
+      <h2 class="rv">Cinco ciclos, cinco canciones</h2>
+      <p class="intro rv">Pulsa el botón de cada canción para escuchar un trocito, el mismo que sonó en el patio. Verás que cada ciclo eligió música a su medida.</p>
+
+      <!-- INFANTIL -->
+      <article class="song" id="infantil">
+        <div class="sfig rv">
+          <figure class="ph">
+            <button type="button" data-lb aria-label="Ampliar foto: Infantil cantando con pajaritas moradas">
+              <img src="img/infantil.jpg" width="1161" height="1400" alt="Niños y niñas de Infantil de pie en el escenario del patio, con pajaritas moradas, delante del mural." loading="lazy" decoding="async">
+            </button>
+            <figcaption>Infantil, con sus pajaritas moradas, abrió el ciclo.</figcaption>
+          </figure>
+        </div>
+        <div class="rv" style="--dl:.1s">
+          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>Infantil</span>
+          <h3>«Iguales tú y yo»</h3>
+          <p class="by">Cuentacuentos</p>
+          <p class="t">Los más pequeños del cole salieron los primeros y le cantaron a la igualdad con un título que lo dice todo: somos iguales. Demostraron que la igualdad se aprende desde que uno empieza a andar.</p>
+          <div class="pl" data-id="nE9A0mw7kZg" data-start="0" data-end="45" data-name="Infantil" data-url="https://music.youtube.com/watch?v=nE9A0mw7kZg">
+            <div class="scr"><img src="https://i.ytimg.com/vi/nE9A0mw7kZg/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Iguales tú y yo»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
+            <div class="bar"><b>Escucha un fragmento</b><a href="https://music.youtube.com/watch?v=nE9A0mw7kZg" target="_blank" rel="noopener">Canción completa ↗</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 1er CICLO -->
+      <article class="song rev" id="ciclo1">
+        <div class="sfig two rv">
+          <figure class="ph">
+            <button type="button" data-lb aria-label="Ampliar foto: 1er ciclo agachado en el escenario">
+              <img src="img/ciclo1a.jpg" width="1161" height="1400" alt="Alumnado de primer ciclo en el escenario, de pie y agachado, con pequeñas coronas doradas en la ropa." loading="lazy" decoding="async">
+            </button>
+            <figcaption>Primer ciclo, con coronitas en el pecho.</figcaption>
+          </figure>
+          <figure class="ph" style="--dl:.1s">
+            <button type="button" data-lb aria-label="Ampliar foto: 1er ciclo bailando">
+              <img src="img/ciclo1b.jpg" width="1161" height="1400" alt="Alumnado de primer ciclo bailando en dos filas delante del mural." loading="lazy" decoding="async">
+            </button>
+            <figcaption>Dos filas, una coreografía y mucha atención.</figcaption>
+          </figure>
+        </div>
+        <div class="rv" style="--dl:.1s">
+          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>1er ciclo</span>
+          <h3>«Reina de mi vida»</h3>
+          <p class="by">Jxta Martin</p>
+          <p class="t">Coreografía en dos filas, gestos al compás y una mirada que decía «lo tenemos muy ensayado». Hasta los de las primeras filas del público se pusieron a moverse en el sitio.</p>
+          <div class="pl" data-id="VExOsTISGsQ" data-start="0" data-end="45" data-name="1er ciclo" data-url="https://www.youtube.com/watch?v=VExOsTISGsQ">
+            <div class="scr"><img src="https://i.ytimg.com/vi/VExOsTISGsQ/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Reina de mi vida»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
+            <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=VExOsTISGsQ" target="_blank" rel="noopener">Canción completa ↗</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2º CICLO -->
+      <article class="song" id="ciclo2">
+        <div class="sfig two rv">
+          <figure class="ph">
+            <button type="button" data-lb aria-label="Ampliar foto: 2º ciclo con los brazos extendidos">
+              <img src="img/ciclo2a.jpg" width="1161" height="1400" alt="Alumnado de segundo ciclo con los brazos extendidos y levantados en el escenario del patio." loading="lazy" decoding="async">
+            </button>
+            <figcaption>Brazos arriba: segundo ciclo, en pleno baile.</figcaption>
+          </figure>
+          <figure class="ph" style="--dl:.1s">
+            <button type="button" data-lb aria-label="Ampliar foto: 2º ciclo en corro">
+              <img src="img/ciclo2b.jpg" width="1161" height="1400" alt="Alumnado de segundo ciclo en un corro, con otros compañeros sentados en el centro." loading="lazy" decoding="async">
+            </button>
+            <figcaption>Un corro con mucho movimiento.</figcaption>
+          </figure>
+        </div>
+        <div class="rv" style="--dl:.1s">
+          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>2º ciclo</span>
+          <h3>«Déjala que baile»</h3>
+          <p class="by">Melendi, con Alejandro Sanz y Arkano</p>
+          <p class="t">Una canción para recordar que cada persona tiene derecho a ser libre, a expresarse y a bailar sin que nadie se lo impida. Al segundo ciclo se le dio de maravilla: ¡qué movimiento!</p>
+          <div class="pl" data-id="yda62tNSLsQ" data-start="0" data-end="45" data-name="2º ciclo" data-url="https://www.youtube.com/watch?v=yda62tNSLsQ">
+            <div class="scr"><img src="https://i.ytimg.com/vi/yda62tNSLsQ/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Déjala que baile»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
+            <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=yda62tNSLsQ" target="_blank" rel="noopener">Canción completa ↗</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3er CICLO -->
+      <article class="song rev" id="ciclo3">
+        <div class="sfig rv">
+          <figure class="ph w">
+            <button type="button" data-lb aria-label="Ampliar foto: 3er ciclo con guitarras y teclado">
+              <img src="img/ciclo3.jpg" width="1400" height="945" alt="Alumnado de tercer ciclo con guitarras, teclado y una cantante con peluca negra, y el resto bailando con las manos en la cintura." loading="lazy" decoding="async">
+            </button>
+            <figcaption>Guitarras, teclado y mucho rock en el patio.</figcaption>
+          </figure>
+        </div>
+        <div class="rv" style="--dl:.1s">
+          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>3er ciclo</span>
+          <h3>«¿A quién le importa lo que yo haga?»</h3>
+          <p class="by">Alaska y Dinarama</p>
+          <p class="t">Un clásico del pop español que el tercer ciclo convirtió en un concierto: banda en directo, bailarines con paso firme y una cantante con mucha personalidad. ¡Con actitud y con estilo!</p>
+          <div class="pl" data-id="llw2Nw8DAZ4" data-start="0" data-end="45" data-name="3er ciclo" data-url="https://www.youtube.com/watch?v=llw2Nw8DAZ4">
+            <div class="scr"><img src="https://i.ytimg.com/vi/llw2Nw8DAZ4/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «¿A quién le importa lo que yo haga?»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
+            <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=llw2Nw8DAZ4" target="_blank" rel="noopener">Canción completa ↗</a></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ESO -->
+      <article class="song" id="eso">
+        <div class="sfig rv">
+          <figure class="ph">
+            <button type="button" data-lb aria-label="Ampliar foto: ESO con lazos morados en el pecho">
+              <img src="img/eso.jpg" width="1161" height="1400" alt="Alumnado de ESO en el escenario del patio, con lazos morados en el pecho, delante del mural." loading="lazy" decoding="async">
+            </button>
+            <figcaption>ESO, con el lazo morado en el pecho.</figcaption>
+          </figure>
+        </div>
+        <div class="rv" style="--dl:.1s">
+          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>ESO</span>
+          <h3>«Lo malo»</h3>
+          <p class="by">Aitana y Ana Guerra</p>
+          <p class="t">Cerró el ciclo la ESO, con un tema que habla de reconocer a tiempo las señales de una relación que no es sana. Con el lazo morado en el pecho y mucha seriedad, cantaron para quienes tenían delante, que eran sus compañeros más pequeños.</p>
+          <div class="pl" data-id="qYXCsZunjRM" data-start="0" data-end="45" data-name="ESO" data-url="https://www.youtube.com/watch?v=qYXCsZunjRM">
+            <div class="scr"><img src="https://i.ytimg.com/vi/qYXCsZunjRM/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Lo malo»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
+            <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=qYXCsZunjRM" target="_blank" rel="noopener">Canción completa ↗</a></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== APERTURA ===== -->
+  <section style="padding-top:0">
+    <div class="wrap dos2">
+      <div class="prose rv">
+        <h2>Antes de cantar, palabras</h2>
+        <p>La jornada empezó con unas palabras del alumnado mayor, que subió al escenario, papel en mano, para explicar a sus compañeros por qué estábamos allí y por qué la música nos une.</p>
+        <p>Todo el patio, en silencio y sentado en el suelo, escuchó con atención. Cuando hay respeto, hasta el patio más grande se queda calladito.</p>
+      </div>
+      <figure class="ph rv" style="--dl:.1s">
+        <button type="button" data-lb aria-label="Ampliar foto: alumnado leyendo ante el resto del cole">
+          <img src="img/apertura.jpg" width="1160" height="1400" alt="Cuatro estudiantes leyendo en el escenario delante del mural, ante el alumnado sentado en el patio." loading="lazy" decoding="async">
+        </button>
+        <figcaption>Unas palabras antes de empezar a cantar.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== AYUDA ===== -->
+  <div class="ayuda">
+    <div class="wrap box">
+      <div class="num rv" aria-hidden="true">016</div>
+      <div class="rv" style="--dl:.1s">
+        <h2>Si necesitas ayuda, no estás sola</h2>
+        <ul>
+          <li><strong>016</strong>: atención a víctimas de violencia de género. Es gratuito, confidencial y funciona las 24 horas, en 53 idiomas.</li>
+          <li><strong>WhatsApp 600 000 016</strong> y correo <strong>016-online@igualdad.gob.es</strong> para quien no puede llamar.</li>
+          <li>Si eres menor de edad, la <strong>Fundación ANAR</strong> atiende en el <strong>900 20 20 10</strong>.</li>
+          <li>En una emergencia, llama al <strong>112</strong>.</li>
+        </ul>
+        <p class="nota">La llamada al 016 no aparece en la factura, aunque puede quedar registrada en el historial del teléfono. Si te preocupa, bórrala.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CIERRE ===== -->
+  <div class="thanks">
+    <svg class="deco" style="right:6%;top:12%;width:clamp(70px,12vw,140px);aspect-ratio:1;animation:lazo 6s ease-in-out infinite" aria-hidden="true"><use href="#lazo-c"/></svg>
+    <div class="wrap">
+      <h2 class="rv">Gracias por cantar con nosotros</h2>
+      <p class="rv">Gracias al alumnado de todos los ciclos, que ensayó, cantó y bailó con ilusión. Gracias al profesorado, que lo preparó todo con mimo: el mural, los lazos, los ensayos. Y gracias a las familias, que en casa continuáis esta tarea cada día. Porque la igualdad se canta, pero sobre todo se practica.</p>
+      <div class="tags rv"><span>#25N</span><span>#LaMúsicaNosUne</span><span>#BuenosTratos</span><span>#NiUnaMás</span></div>
+      <p class="sign rv">CEIP Nuestra Señora de la Asunción · Arboleas</p>
+    </div>
+  </div>
+</main>
+
+<!-- Visor de fotos -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button type="button" id="lb-x" aria-label="Cerrar">×</button>
+  <img id="lb-i" alt="">
+  <p id="lb-c"></p>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    rv.forEach(function(n){io.observe(n)});
+  }else rv.forEach(function(n){n.classList.add('in')});
+
+  var lb=document.getElementById('lb'),im=document.getElementById('lb-i'),cp=document.getElementById('lb-c'),last=null;
+  function open(b){var f=b.closest('figure'),i=b.querySelector('img');last=b;im.src=i.currentSrc||i.src;im.alt=i.alt;cp.textContent=f.querySelector('figcaption')?f.querySelector('figcaption').textContent:'';lb.hidden=false;lb.classList.add('on');document.getElementById('lb-x').focus()}
+  function close(){lb.classList.remove('on');lb.hidden=true;im.removeAttribute('src');if(last)last.focus()}
+  [].forEach.call(document.querySelectorAll('[data-lb]'),function(b){b.addEventListener('click',function(){open(b)})});
+  lb.addEventListener('click',function(e){if(e.target!==im)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))close()});
+})();
+
+/* ===== Fragmentos de las canciones =====
+   Cada reproductor tiene data-start y data-end (segundos del vídeo de YouTube).
+   Cambia esos dos números en el HTML para elegir la parte representativa. */
+(function(){
+  var players=[].slice.call(document.querySelectorAll('.pl'));
+  var saved=new Map();
+  function reset(p){
+    var s=saved.get(p);if(!s)return;
+    p.querySelector('.scr').innerHTML=s.scr;p.querySelector('.bar').innerHTML=s.bar;saved.delete(p);bind(p);
+  }
+  function bind(p){
+    var go=p.querySelector('.go');if(!go)return;
+    go.addEventListener('click',function(){
+      players.forEach(function(o){if(o!==p)reset(o)});
+      var scr=p.querySelector('.scr'),bar=p.querySelector('.bar');
+      saved.set(p,{scr:scr.innerHTML,bar:bar.innerHTML});
+      var st=parseInt(p.getAttribute('data-start'),10)||0,en=parseInt(p.getAttribute('data-end'),10)||0;
+      var src='https://www.youtube-nocookie.com/embed/'+p.getAttribute('data-id')+'?autoplay=1&rel=0&modestbranding=1&playsinline=1&start='+st+(en>st?'&end='+en:'');
+      scr.innerHTML='<iframe src="'+src+'" title="Fragmento de la canción de '+p.getAttribute('data-name')+'" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+      bar.innerHTML='<b>Sonando el fragmento…</b><button type="button" class="stop">Parar</button>';
+      bar.querySelector('.stop').addEventListener('click',function(){reset(p)});
+    });
+  }
+  players.forEach(bind);
+})();
+</script>
+</body>
+</html>
