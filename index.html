@@ -43,8 +43,6 @@ h1 em{font-style:italic;font-weight:500;color:#c79be6}
 /* ===== Fotos ===== */
 .lead{margin-top:calc(-1 * clamp(3rem,8vw,6rem));position:relative;z-index:3}
 .ph{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:var(--lila);box-shadow:0 24px 60px -24px rgba(29,26,60,.55)}
-.ph button{all:unset;display:block;width:100%;height:100%;cursor:zoom-in}
-.ph button:focus-visible{outline:3px solid var(--mor2);outline-offset:-6px}
 .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .ph:hover img{transform:scale(1.03)}
 .ph figcaption{position:absolute;inset:auto 0 0 0;padding:2.4rem 1.1rem .9rem;font-size:.88rem;line-height:1.4;color:#fff;background:linear-gradient(transparent,rgba(29,26,60,.88));pointer-events:none}
@@ -137,12 +135,38 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
 .thanks .sign{margin-top:1.6rem;font-weight:700;color:var(--lila2);letter-spacing:.03em}
 .thanks .deco{opacity:.35}
 
-/* ===== Visor de fotos ===== */
-.lb{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:1rem;background:rgba(15,13,36,.92)}
-.lb.on{display:flex}
-.lb img{max-width:100%;max-height:86vh;border-radius:12px}
-.lb p{position:absolute;left:0;right:0;bottom:.8rem;text-align:center;color:#e6dcf3;font-size:.9rem;padding-inline:1rem;margin:0}
-.lb button{position:absolute;top:.8rem;right:.8rem;width:2.8rem;height:2.8rem;border:0;border-radius:50%;background:#fff;color:var(--navy);font-size:1.5rem;font-weight:700;cursor:pointer}
+
+/* ===== Canciones: cabecera y carrusel ===== */
+.song{display:block}
+.sinfo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.4rem,4.5vw,3.5rem);align-items:center}
+.sinfo .pl{margin-top:0}
+.car{position:relative;margin-top:clamp(1.4rem,3vw,2.2rem)}
+.trk{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--r);box-shadow:0 24px 60px -24px rgba(29,26,60,.55);background:var(--lila)}
+.trk::-webkit-scrollbar{display:none}
+.sl{position:relative;flex:0 0 100%;scroll-snap-align:center;aspect-ratio:16/10;margin:0;overflow:hidden}
+.sl img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 60%)}
+.sl figcaption{position:absolute;inset:auto 0 0 0;padding:2.6rem 1.2rem .9rem;font-size:.95rem;line-height:1.4;color:#fff;background:linear-gradient(transparent,rgba(29,26,60,.88));pointer-events:none}
+.nav{position:absolute;top:calc(50% - 1.6rem);width:3.2rem;height:3.2rem;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--mor);font:700 2rem/1 var(--sans);cursor:pointer;display:grid;place-items:center;padding:0 0 .2rem;box-shadow:0 8px 20px -6px rgba(0,0,0,.5);transition:transform .2s,background .2s}
+.nav:hover{background:#fff;transform:scale(1.08)}
+.nav.prev{left:.8rem}.nav.next{right:.8rem}
+.nav[disabled]{opacity:.35;cursor:default;transform:none}
+.dots{display:flex;justify-content:center;gap:.5rem;margin-top:.8rem}
+.dots i{width:.7rem;height:.7rem;border-radius:50%;background:var(--lila2);transition:background .3s,transform .3s}
+.dots i.on{background:var(--mor);transform:scale(1.25)}
+.car.single .nav,.car.single .dots{display:none}
+
+/* ===== Botón de apoyo ===== */
+.apoyo{margin-top:1.8rem;display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.2rem}
+.ap-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 1.5rem .9rem 1rem;border:0;border-radius:999px;background:var(--mor2);color:#fff;font:800 1.02rem/1.1 var(--sans);cursor:pointer;box-shadow:0 14px 30px -12px rgba(165,102,201,.9);animation:latido 2.4s ease-in-out infinite;transition:transform .2s,background .3s}
+.ap-btn svg{width:2.2rem;height:2.2rem;flex:none;background:#fff;border-radius:50%;padding:.3rem}
+.ap-btn:hover{background:#b87ad8}.ap-btn:active{transform:scale(.95)}
+.ap-btn.on{animation:none;background:var(--navy3);box-shadow:inset 0 0 0 2px var(--mor2)}
+.ap-n{font-weight:700;color:var(--lila2)}
+.ap-n b{font:700 1.5rem/1 var(--serif);color:#fff;margin-right:.3rem}
+.fx{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}
+.fx .pu{position:absolute;bottom:-60px;animation:sube 3.2s ease-out forwards}
+.fx .pu svg{display:block;width:100%;height:100%}
+@keyframes sube{0%{opacity:0;transform:translateY(0) rotate(var(--r))}15%{opacity:1}100%{opacity:0;transform:translateY(var(--h)) rotate(calc(var(--r) * -1))}}
 
 /* ===== Aparición ===== */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--dl,0s)}
@@ -150,12 +174,11 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
 
 /* ===== Adaptación ===== */
 @media(max-width:980px){
-  .dos2,.porque .grid,.song{grid-template-columns:minmax(0,1fr)}
-  .song.rev .sfig{order:0}
+  .dos2,.porque .grid,.sinfo{grid-template-columns:minmax(0,1fr)}
   .dos2 .ph{aspect-ratio:4/3;max-width:560px}
-  .sfig .ph{aspect-ratio:4/3}
-  .sfig.two .ph{aspect-ratio:4/5}
+  .car,.sinfo .pl{max-width:640px}.car{margin-inline:auto}
 }
+@media(max-width:600px){.sl{aspect-ratio:4/5}.nav{width:2.7rem;height:2.7rem;top:calc(50% - 1.35rem);font-size:1.7rem}}
 @media(max-width:700px){
   .lead .ph{aspect-ratio:4/3}
   h1{max-width:none}
@@ -199,6 +222,17 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
     <symbol id="clave" viewBox="0 0 64 64">
       <path d="M34 4C26 12 26 24 33 34C40 44 38 56 30 58C22 60 18 52 24 48C30 44 38 48 40 40C42 30 24 28 22 38" fill="none" stroke="#a566c9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
+    <!-- puño en alto -->
+    <symbol id="puno" viewBox="0 0 64 64">
+      <rect x="22" y="44" width="22" height="18" rx="4" fill="#7b3fa0"/>
+      <rect x="16" y="22" width="34" height="26" rx="9" fill="#a566c9" stroke="#7b3fa0" stroke-width="2.5"/>
+      <rect x="17" y="10" width="8" height="18" rx="4" fill="#a566c9" stroke="#7b3fa0" stroke-width="2.5"/>
+      <rect x="25" y="7" width="8" height="21" rx="4" fill="#a566c9" stroke="#7b3fa0" stroke-width="2.5"/>
+      <rect x="33" y="8" width="8" height="20" rx="4" fill="#a566c9" stroke="#7b3fa0" stroke-width="2.5"/>
+      <rect x="41" y="11" width="8" height="17" rx="4" fill="#a566c9" stroke="#7b3fa0" stroke-width="2.5"/>
+      <path d="M17 30h32M17 36h24" stroke="#7b3fa0" stroke-width="2" stroke-linecap="round" opacity=".5" fill="none"/>
+      <rect x="9" y="28" width="22" height="9" rx="4.5" transform="rotate(14 20 32)" fill="#c79be6" stroke="#7b3fa0" stroke-width="2.5"/>
+    </symbol>
     <!-- play -->
     <symbol id="play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="#fff"/></symbol>
   </defs>
@@ -216,7 +250,12 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
     <h1>La música <em>nos une</em></h1>
     <p class="sub">II Ciclo de canciones contra la violencia de género</p>
     <p class="lede">Este 25 de noviembre el patio se llenó de música, de lazos morados y de mensajes que importan. Cada ciclo preparó una canción para cantársela al resto del cole.</p>
+    <div class="apoyo">
+      <button type="button" class="ap-btn" id="ap" aria-pressed="false"><svg aria-hidden="true"><use href="#puno"/></svg><span id="ap-t">Yo apoyo esta lucha</span></button>
+      <p class="ap-n" id="ap-n" aria-live="polite" hidden></p>
+    </div>
   </div>
+  <div class="fx" id="fx" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -224,9 +263,7 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
   <!-- ===== FOTO PRINCIPAL ===== -->
   <div class="wrap lead">
     <figure class="ph rv">
-      <button type="button" data-lb aria-label="Ampliar foto: el mural «La música nos une»">
-        <img src="img/mural.jpg" width="1400" height="945" alt="Mural del patio con el título «La música nos une», una clave de sol, notas musicales y lazos morados, orlado de círculos de colores." loading="eager" decoding="async">
-      </button>
+      <img src="img/mural.jpg" width="1400" height="945" alt="Mural del patio con el título «La música nos une», una clave de sol, notas musicales y lazos morados, orlado de círculos de colores." loading="eager" decoding="async">
       <figcaption>«La música nos une», por la igualdad y los buenos tratos.</figcaption>
     </figure>
   </div>
@@ -243,9 +280,7 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
       </div>
       <div class="cartel rv" style="--dl:.1s">
         <figure class="ph">
-          <button type="button" data-lb aria-label="Ampliar foto: cartel morado con tres puños alzados">
-            <img src="img/cartel.jpg" width="938" height="1000" alt="Cartel morado con tres puños alzados rodeados de flores y corazones, colgado en la pared del patio." loading="lazy" decoding="async">
-          </button>
+          <img src="img/cartel.jpg" width="938" height="1000" alt="Cartel morado con tres puños alzados rodeados de flores y corazones, colgado en la pared del patio." loading="lazy" decoding="async">
           <figcaption>El cartel del patio: tres puños, muchas flores y mucha fuerza.</figcaption>
         </figure>
       </div>
@@ -276,127 +311,110 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
   <section class="songs">
     <div class="wrap">
       <h2 class="rv">Cinco ciclos, cinco canciones</h2>
-      <p class="intro rv">Pulsa el botón de cada canción para escuchar un trocito, el mismo que sonó en el patio. Verás que cada ciclo eligió música a su medida.</p>
+      <p class="intro rv">Pulsa el botón de cada canción para escuchar el estribillo y desliza las fotos para ver cómo lo vivimos en el patio.</p>
 
-      <!-- INFANTIL -->
       <article class="song" id="infantil">
-        <div class="sfig rv">
-          <figure class="ph">
-            <button type="button" data-lb aria-label="Ampliar foto: Infantil cantando con pajaritas moradas">
-              <img src="img/infantil.jpg" width="1161" height="1400" alt="Niños y niñas de Infantil de pie en el escenario del patio, con pajaritas moradas, delante del mural." loading="lazy" decoding="async">
-            </button>
-            <figcaption>Infantil, con sus pajaritas moradas, abrió el ciclo.</figcaption>
-          </figure>
-        </div>
-        <div class="rv" style="--dl:.1s">
-          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>Infantil</span>
-          <h3>«Iguales tú y yo»</h3>
-          <p class="by">Cuentacuentos</p>
-          <p class="t">Los más pequeños del cole salieron los primeros y le cantaron a la igualdad con un título que lo dice todo: somos iguales. Demostraron que la igualdad se aprende desde que uno empieza a andar.</p>
-          <div class="pl" data-id="nE9A0mw7kZg" data-start="0" data-end="45" data-name="Infantil" data-url="https://music.youtube.com/watch?v=nE9A0mw7kZg">
+        <div class="sinfo rv">
+          <div>
+            <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>Infantil</span>
+            <h3>«Iguales tú y yo»</h3>
+            <p class="by">Cuentacuentos</p>
+            <p class="t">Los más pequeños del cole salieron los primeros y le cantaron a la igualdad con un título que lo dice todo: somos iguales. Demostraron que la igualdad se aprende desde que uno empieza a andar.</p>
+          </div>
+          <div class="pl" data-id="nE9A0mw7kZg" data-start="32" data-end="77" data-name="«Iguales tú y yo»" data-url="https://music.youtube.com/watch?v=nE9A0mw7kZg">
             <div class="scr"><img src="https://i.ytimg.com/vi/nE9A0mw7kZg/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Iguales tú y yo»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
             <div class="bar"><b>Escucha un fragmento</b><a href="https://music.youtube.com/watch?v=nE9A0mw7kZg" target="_blank" rel="noopener">Canción completa ↗</a></div>
           </div>
         </div>
+        <div class="car single rv" data-car role="group" aria-roledescription="carrusel" aria-label="Fotos de Infantil">
+          <div class="trk" tabindex="0"><figure class="sl"><img src="img/infantil.jpg" width="1161" height="1400" alt="Niños y niñas de Infantil de pie en el escenario del patio, con pajaritas moradas, delante del mural." style="--pos:50% 72%" loading="lazy" decoding="async"><figcaption>Infantil, con sus pajaritas moradas, abrió el ciclo.</figcaption></figure></div>
+          <button type="button" class="nav prev" aria-label="Foto anterior">‹</button>
+          <button type="button" class="nav next" aria-label="Foto siguiente">›</button>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
       </article>
 
-      <!-- 1er CICLO -->
-      <article class="song rev" id="ciclo1">
-        <div class="sfig two rv">
-          <figure class="ph">
-            <button type="button" data-lb aria-label="Ampliar foto: 1er ciclo agachado en el escenario">
-              <img src="img/ciclo1a.jpg" width="1161" height="1400" alt="Alumnado de primer ciclo en el escenario, de pie y agachado, con pequeñas coronas doradas en la ropa." loading="lazy" decoding="async">
-            </button>
-            <figcaption>Primer ciclo, con coronitas en el pecho.</figcaption>
-          </figure>
-          <figure class="ph" style="--dl:.1s">
-            <button type="button" data-lb aria-label="Ampliar foto: 1er ciclo bailando">
-              <img src="img/ciclo1b.jpg" width="1161" height="1400" alt="Alumnado de primer ciclo bailando en dos filas delante del mural." loading="lazy" decoding="async">
-            </button>
-            <figcaption>Dos filas, una coreografía y mucha atención.</figcaption>
-          </figure>
-        </div>
-        <div class="rv" style="--dl:.1s">
-          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>1er ciclo</span>
-          <h3>«Reina de mi vida»</h3>
-          <p class="by">Jxta Martin</p>
-          <p class="t">Coreografía en dos filas, gestos al compás y una mirada que decía «lo tenemos muy ensayado». Hasta los de las primeras filas del público se pusieron a moverse en el sitio.</p>
-          <div class="pl" data-id="VExOsTISGsQ" data-start="0" data-end="45" data-name="1er ciclo" data-url="https://www.youtube.com/watch?v=VExOsTISGsQ">
+      <article class="song" id="ciclo1">
+        <div class="sinfo rv">
+          <div>
+            <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>1er ciclo</span>
+            <h3>«Reina de mi vida»</h3>
+            <p class="by">Jxta Martin</p>
+            <p class="t">Coreografía en dos filas, gestos al compás y una mirada que decía «lo tenemos muy ensayado». Hasta los de las primeras filas del público se pusieron a moverse en el sitio.</p>
+          </div>
+          <div class="pl" data-id="VExOsTISGsQ" data-start="68" data-end="113" data-name="«Reina de mi vida»" data-url="https://www.youtube.com/watch?v=VExOsTISGsQ">
             <div class="scr"><img src="https://i.ytimg.com/vi/VExOsTISGsQ/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Reina de mi vida»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
             <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=VExOsTISGsQ" target="_blank" rel="noopener">Canción completa ↗</a></div>
           </div>
         </div>
+        <div class="car rv" data-car role="group" aria-roledescription="carrusel" aria-label="Fotos de 1er ciclo">
+          <div class="trk" tabindex="0"><figure class="sl"><img src="img/ciclo1a.jpg" width="1161" height="1400" alt="Alumnado de primer ciclo en el escenario, de pie y agachado, con pequeñas coronas doradas en la ropa." style="--pos:50% 78%" loading="lazy" decoding="async"><figcaption>Primer ciclo, con coronitas en el pecho.</figcaption></figure><figure class="sl"><img src="img/ciclo1b.jpg" width="1161" height="1400" alt="Alumnado de primer ciclo bailando en dos filas delante del mural." style="--pos:50% 78%" loading="lazy" decoding="async"><figcaption>Dos filas, una coreografía y mucha atención.</figcaption></figure></div>
+          <button type="button" class="nav prev" aria-label="Foto anterior">‹</button>
+          <button type="button" class="nav next" aria-label="Foto siguiente">›</button>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
       </article>
 
-      <!-- 2º CICLO -->
       <article class="song" id="ciclo2">
-        <div class="sfig two rv">
-          <figure class="ph">
-            <button type="button" data-lb aria-label="Ampliar foto: 2º ciclo con los brazos extendidos">
-              <img src="img/ciclo2a.jpg" width="1161" height="1400" alt="Alumnado de segundo ciclo con los brazos extendidos y levantados en el escenario del patio." loading="lazy" decoding="async">
-            </button>
-            <figcaption>Brazos arriba: segundo ciclo, en pleno baile.</figcaption>
-          </figure>
-          <figure class="ph" style="--dl:.1s">
-            <button type="button" data-lb aria-label="Ampliar foto: 2º ciclo en corro">
-              <img src="img/ciclo2b.jpg" width="1161" height="1400" alt="Alumnado de segundo ciclo en un corro, con otros compañeros sentados en el centro." loading="lazy" decoding="async">
-            </button>
-            <figcaption>Un corro con mucho movimiento.</figcaption>
-          </figure>
-        </div>
-        <div class="rv" style="--dl:.1s">
-          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>2º ciclo</span>
-          <h3>«Déjala que baile»</h3>
-          <p class="by">Melendi, con Alejandro Sanz y Arkano</p>
-          <p class="t">Una canción para recordar que cada persona tiene derecho a ser libre, a expresarse y a bailar sin que nadie se lo impida. Al segundo ciclo se le dio de maravilla: ¡qué movimiento!</p>
-          <div class="pl" data-id="yda62tNSLsQ" data-start="0" data-end="45" data-name="2º ciclo" data-url="https://www.youtube.com/watch?v=yda62tNSLsQ">
+        <div class="sinfo rv">
+          <div>
+            <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>2º ciclo</span>
+            <h3>«Déjala que baile»</h3>
+            <p class="by">Melendi, con Alejandro Sanz y Arkano</p>
+            <p class="t">Una canción para recordar que cada persona tiene derecho a ser libre, a expresarse y a bailar sin que nadie se lo impida. Al segundo ciclo se le dio de maravilla: ¡qué movimiento!</p>
+          </div>
+          <div class="pl" data-id="yda62tNSLsQ" data-start="37" data-end="82" data-name="«Déjala que baile»" data-url="https://www.youtube.com/watch?v=yda62tNSLsQ">
             <div class="scr"><img src="https://i.ytimg.com/vi/yda62tNSLsQ/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Déjala que baile»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
             <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=yda62tNSLsQ" target="_blank" rel="noopener">Canción completa ↗</a></div>
           </div>
         </div>
+        <div class="car rv" data-car role="group" aria-roledescription="carrusel" aria-label="Fotos de 2º ciclo">
+          <div class="trk" tabindex="0"><figure class="sl"><img src="img/ciclo2a.jpg" width="1161" height="1400" alt="Alumnado de segundo ciclo con los brazos extendidos y levantados en el escenario del patio." style="--pos:50% 80%" loading="lazy" decoding="async"><figcaption>Brazos arriba: segundo ciclo, en pleno baile.</figcaption></figure><figure class="sl"><img src="img/ciclo2b.jpg" width="1161" height="1400" alt="Alumnado de segundo ciclo en un corro, con otros compañeros sentados en el centro." style="--pos:50% 80%" loading="lazy" decoding="async"><figcaption>Un corro con mucho movimiento.</figcaption></figure></div>
+          <button type="button" class="nav prev" aria-label="Foto anterior">‹</button>
+          <button type="button" class="nav next" aria-label="Foto siguiente">›</button>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
       </article>
 
-      <!-- 3er CICLO -->
-      <article class="song rev" id="ciclo3">
-        <div class="sfig rv">
-          <figure class="ph w">
-            <button type="button" data-lb aria-label="Ampliar foto: 3er ciclo con guitarras y teclado">
-              <img src="img/ciclo3.jpg" width="1400" height="945" alt="Alumnado de tercer ciclo con guitarras, teclado y una cantante con peluca negra, y el resto bailando con las manos en la cintura." loading="lazy" decoding="async">
-            </button>
-            <figcaption>Guitarras, teclado y mucho rock en el patio.</figcaption>
-          </figure>
-        </div>
-        <div class="rv" style="--dl:.1s">
-          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>3er ciclo</span>
-          <h3>«¿A quién le importa lo que yo haga?»</h3>
-          <p class="by">Alaska y Dinarama</p>
-          <p class="t">Un clásico del pop español que el tercer ciclo convirtió en un concierto: banda en directo, bailarines con paso firme y una cantante con mucha personalidad. ¡Con actitud y con estilo!</p>
-          <div class="pl" data-id="llw2Nw8DAZ4" data-start="0" data-end="45" data-name="3er ciclo" data-url="https://www.youtube.com/watch?v=llw2Nw8DAZ4">
-            <div class="scr"><img src="https://i.ytimg.com/vi/llw2Nw8DAZ4/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «¿A quién le importa lo que yo haga?»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
-            <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=llw2Nw8DAZ4" target="_blank" rel="noopener">Canción completa ↗</a></div>
+      <article class="song" id="ciclo3">
+        <div class="sinfo rv">
+          <div>
+            <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>3er ciclo</span>
+            <h3>«¿A quién le importa lo que yo haga?»</h3>
+            <p class="by">Alaska y Dinarama</p>
+            <p class="t">Un clásico del pop español que el tercer ciclo convirtió en un concierto: banda en directo, bailarines con paso firme y una cantante con mucha personalidad. ¡Con actitud y con estilo!</p>
+          </div>
+          <div class="pl" data-id="2kVIIV6X5To" data-start="64" data-end="109" data-name="«¿A quién le importa lo que yo haga?»" data-url="https://www.youtube.com/watch?v=2kVIIV6X5To">
+            <div class="scr"><img src="https://i.ytimg.com/vi/2kVIIV6X5To/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «¿A quién le importa lo que yo haga?»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
+            <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=2kVIIV6X5To" target="_blank" rel="noopener">Canción completa ↗</a></div>
           </div>
         </div>
+        <div class="car single rv" data-car role="group" aria-roledescription="carrusel" aria-label="Fotos de 3er ciclo">
+          <div class="trk" tabindex="0"><figure class="sl"><img src="img/ciclo3.jpg" width="1161" height="1400" alt="Alumnado de tercer ciclo con guitarras, teclado y una cantante con peluca negra, y el resto bailando con las manos en la cintura." style="--pos:50% 55%" loading="lazy" decoding="async"><figcaption>Guitarras, teclado y mucho rock en el patio.</figcaption></figure></div>
+          <button type="button" class="nav prev" aria-label="Foto anterior">‹</button>
+          <button type="button" class="nav next" aria-label="Foto siguiente">›</button>
+          <div class="dots" aria-hidden="true"></div>
+        </div>
       </article>
 
-      <!-- ESO -->
       <article class="song" id="eso">
-        <div class="sfig rv">
-          <figure class="ph">
-            <button type="button" data-lb aria-label="Ampliar foto: ESO con lazos morados en el pecho">
-              <img src="img/eso.jpg" width="1161" height="1400" alt="Alumnado de ESO en el escenario del patio, con lazos morados en el pecho, delante del mural." loading="lazy" decoding="async">
-            </button>
-            <figcaption>ESO, con el lazo morado en el pecho.</figcaption>
-          </figure>
-        </div>
-        <div class="rv" style="--dl:.1s">
-          <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>ESO</span>
-          <h3>«Lo malo»</h3>
-          <p class="by">Aitana y Ana Guerra</p>
-          <p class="t">Cerró el ciclo la ESO, con un tema que habla de reconocer a tiempo las señales de una relación que no es sana. Con el lazo morado en el pecho y mucha seriedad, cantaron para quienes tenían delante, que eran sus compañeros más pequeños.</p>
-          <div class="pl" data-id="qYXCsZunjRM" data-start="0" data-end="45" data-name="ESO" data-url="https://www.youtube.com/watch?v=qYXCsZunjRM">
+        <div class="sinfo rv">
+          <div>
+            <span class="tag"><svg aria-hidden="true"><use href="#corchea"/></svg>ESO</span>
+            <h3>«Lo malo»</h3>
+            <p class="by">Aitana y Ana Guerra</p>
+            <p class="t">Cerró el ciclo la ESO, con un tema que habla de reconocer a tiempo las señales de una relación que no es sana. Con el lazo morado en el pecho y mucha seriedad, cantaron para quienes tenían delante, que eran sus compañeros más pequeños.</p>
+          </div>
+          <div class="pl" data-id="qYXCsZunjRM" data-start="135" data-end="180" data-name="«Lo malo»" data-url="https://www.youtube.com/watch?v=qYXCsZunjRM">
             <div class="scr"><img src="https://i.ytimg.com/vi/qYXCsZunjRM/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><button type="button" class="go" aria-label="Escuchar un fragmento de «Lo malo»"><span><svg aria-hidden="true"><use href="#play"/></svg></span></button></div>
             <div class="bar"><b>Escucha un fragmento</b><a href="https://www.youtube.com/watch?v=qYXCsZunjRM" target="_blank" rel="noopener">Canción completa ↗</a></div>
           </div>
+        </div>
+        <div class="car single rv" data-car role="group" aria-roledescription="carrusel" aria-label="Fotos de ESO">
+          <div class="trk" tabindex="0"><figure class="sl"><img src="img/eso.jpg" width="1161" height="1400" alt="Alumnado de ESO en el escenario del patio, con lazos morados en el pecho, delante del mural." style="--pos:50% 78%" loading="lazy" decoding="async"><figcaption>ESO, con el lazo morado en el pecho.</figcaption></figure></div>
+          <button type="button" class="nav prev" aria-label="Foto anterior">‹</button>
+          <button type="button" class="nav next" aria-label="Foto siguiente">›</button>
+          <div class="dots" aria-hidden="true"></div>
         </div>
       </article>
     </div>
@@ -411,9 +429,7 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
         <p>Todo el patio, en silencio y sentado en el suelo, escuchó con atención. Cuando hay respeto, hasta el patio más grande se queda calladito.</p>
       </div>
       <figure class="ph rv" style="--dl:.1s">
-        <button type="button" data-lb aria-label="Ampliar foto: alumnado leyendo ante el resto del cole">
-          <img src="img/apertura.jpg" width="1160" height="1400" alt="Cuatro estudiantes leyendo en el escenario delante del mural, ante el alumnado sentado en el patio." loading="lazy" decoding="async">
-        </button>
+        <img src="img/apertura.jpg" width="1160" height="1400" alt="Cuatro estudiantes leyendo en el escenario delante del mural, ante el alumnado sentado en el patio." loading="lazy" decoding="async">
         <figcaption>Unas palabras antes de empezar a cantar.</figcaption>
       </figure>
     </div>
@@ -448,12 +464,6 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
   </div>
 </main>
 
-<!-- Visor de fotos -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
-  <button type="button" id="lb-x" aria-label="Cerrar">×</button>
-  <img id="lb-i" alt="">
-  <p id="lb-c"></p>
-</div>
 
 <script>
 (function(){
@@ -464,12 +474,6 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
     rv.forEach(function(n){io.observe(n)});
   }else rv.forEach(function(n){n.classList.add('in')});
 
-  var lb=document.getElementById('lb'),im=document.getElementById('lb-i'),cp=document.getElementById('lb-c'),last=null;
-  function open(b){var f=b.closest('figure'),i=b.querySelector('img');last=b;im.src=i.currentSrc||i.src;im.alt=i.alt;cp.textContent=f.querySelector('figcaption')?f.querySelector('figcaption').textContent:'';lb.hidden=false;lb.classList.add('on');document.getElementById('lb-x').focus()}
-  function close(){lb.classList.remove('on');lb.hidden=true;im.removeAttribute('src');if(last)last.focus()}
-  [].forEach.call(document.querySelectorAll('[data-lb]'),function(b){b.addEventListener('click',function(){open(b)})});
-  lb.addEventListener('click',function(e){if(e.target!==im)close()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))close()});
 })();
 
 /* ===== Fragmentos de las canciones =====
@@ -496,6 +500,58 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
     });
   }
   players.forEach(bind);
+})();
+
+/* ===== Carruseles ===== */
+(function(){
+  [].forEach.call(document.querySelectorAll('[data-car]'),function(c){
+    var t=c.querySelector('.trk'),sl=[].slice.call(t.children),pv=c.querySelector('.prev'),nx=c.querySelector('.next'),dt=c.querySelector('.dots');
+    sl.forEach(function(){dt.appendChild(document.createElement('i'))});
+    function idx(){return Math.max(0,Math.min(sl.length-1,Math.round(t.scrollLeft/t.clientWidth)))}
+    function upd(){var i=idx();[].forEach.call(dt.children,function(d,k){d.classList.toggle('on',k===i)});pv.disabled=i===0;nx.disabled=i===sl.length-1}
+    function go(i){t.scrollTo({left:i*t.clientWidth,behavior:'smooth'})}
+    pv.addEventListener('click',function(){go(idx()-1)});
+    nx.addEventListener('click',function(){go(idx()+1)});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(idx()+1);e.preventDefault()}if(e.key==='ArrowLeft'){go(idx()-1);e.preventDefault()}});
+    var raf;t.addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(upd)},{passive:true});
+    window.addEventListener('resize',upd);upd();
+  });
+})();
+
+/* ===== Contador de apoyos (puño en alto) ===== */
+(function(){
+  var NS='ceip-nsra-asuncion',KEY='apoyo-25n-2026',LS='n25-apoyo';
+  var b=document.getElementById('ap'),t=document.getElementById('ap-t'),n=document.getElementById('ap-n'),fx=document.getElementById('fx'),hero=document.querySelector('.hero');
+  if(!b)return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var P=[
+    {hit:'https://abacus.jasoncameron.dev/hit/'+NS+'/'+KEY,get:'https://abacus.jasoncameron.dev/get/'+NS+'/'+KEY,val:function(j){return j.value}},
+    {hit:'https://api.counterapi.dev/v1/'+NS+'/'+KEY+'/up',get:'https://api.counterapi.dev/v1/'+NS+'/'+KEY,val:function(j){return j.count}}
+  ];
+  function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function gj(u){var c=window.AbortController?new AbortController():null,tm=setTimeout(function(){c&&c.abort()},5000);return fetch(u,{cache:'no-store',signal:c?c.signal:undefined}).then(function(r){clearTimeout(tm);if(!r.ok)throw 0;return r.json()})}
+  function ask(hit){var i=0;function nx(){if(i>=P.length)return Promise.reject();var p=P[i++];return gj(hit?p.hit:p.get).then(function(j){var v=Number(p.val(j));if(!isFinite(v))throw 0;return v}).catch(nx)}return nx()}
+  function show(v){n.hidden=false;n.innerHTML=v>0?'<b>'+v.toLocaleString('es-ES')+'</b>'+(v===1?'persona ya lo apoya':'personas ya lo apoyan'):'Sé la primera persona en apoyarlo'}
+  function rnd(a,c){return a+Math.random()*(c-a)}
+  function puños(k){
+    if(reduce||!fx)return;var H=hero.clientHeight+80;
+    for(var i=0;i<k;i++){
+      var d=document.createElement('div'),z=rnd(26,50);d.className='pu';
+      d.innerHTML='<svg aria-hidden="true"><use href="#puno"/></svg>';
+      d.style.cssText='left:'+rnd(3,94)+'%;width:'+z+'px;height:'+z+'px;--h:-'+H+'px;--r:'+rnd(-25,25)+'deg;animation-delay:'+rnd(0,.7)+'s;animation-duration:'+rnd(2.4,4)+'s';
+      d.addEventListener('animationend',function(e){e.currentTarget.remove()});fx.appendChild(d);
+    }
+  }
+  var hecho=ls(LS)==='1',cur=null;
+  function listo(){b.classList.add('on');b.setAttribute('aria-pressed','true');t.textContent='¡Gracias por apoyar!'}
+  if(hecho)listo();
+  ask(false).then(function(v){cur=v;show(v)}).catch(function(){});
+  b.addEventListener('click',function(){
+    puños(hecho?10:26);
+    if(hecho)return;
+    hecho=true;ls(LS,'1');listo();
+    ask(true).then(function(v){cur=v;show(v)}).catch(function(){if(cur!==null){cur++;show(cur)}});
+  });
 })();
 </script>
 </body>
