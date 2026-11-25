@@ -529,8 +529,11 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
     {hit:'https://api.counterapi.dev/v1/'+NS+'/'+KEY+'/up',get:'https://api.counterapi.dev/v1/'+NS+'/'+KEY,val:function(j){return j.count}}
   ];
   function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
-  function gj(u){var c=window.AbortController?new AbortController():null,tm=setTimeout(function(){c&&c.abort()},5000);return fetch(u,{cache:'no-store',signal:c?c.signal:undefined}).then(function(r){clearTimeout(tm);if(!r.ok)throw 0;return r.json()})}
-  function ask(hit){var i=0;function nx(){if(i>=P.length)return Promise.reject();var p=P[i++];return gj(hit?p.hit:p.get).then(function(j){var v=Number(p.val(j));if(!isFinite(v))throw 0;return v}).catch(nx)}return nx()}
+  var DBG=new URLSearchParams(location.search).get('debug')==='1',log=[];
+  function gj(u){var c=window.AbortController?new AbortController():null,tm=setTimeout(function(){c&&c.abort()},6000);return fetch(u,{cache:'no-store',signal:c?c.signal:undefined}).then(function(r){clearTimeout(tm);if(r.status===404)return{_nf:1};if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})}
+  /* hit=true suma 1; hit=false solo lee. Si el contador aún no existe (nadie ha pulsado) devuelve 0 */
+  function ask(hit){var i=0;function nx(){if(i>=P.length)return Promise.reject(new Error('sin servicio'));var p=P[i++];return gj(hit?p.hit:p.get).then(function(j){if(j&&j._nf){log.push('OK 0 (aún no existe)');return 0}var v=Number(p.val(j));if(!isFinite(v))throw new Error('respuesta rara');log.push('OK '+v);return v}).catch(function(e){log.push(String(e&&e.message||e));return nx()})}return nx()}
+  function dbg(){if(DBG){n.hidden=false;n.textContent='DIAGNÓSTICO: '+log.join(' | ')}}
   function show(v){n.hidden=false;n.innerHTML=v>0?'<b>'+v.toLocaleString('es-ES')+'</b>'+(v===1?'persona ya lo apoya':'personas ya lo apoyan'):'Sé la primera persona en apoyarlo'}
   function rnd(a,c){return a+Math.random()*(c-a)}
   function puños(k){
@@ -545,12 +548,12 @@ h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margi
   var hecho=ls(LS)==='1',cur=null;
   function listo(){b.classList.add('on');b.setAttribute('aria-pressed','true');t.textContent='¡Gracias por apoyar!'}
   if(hecho)listo();
-  ask(false).then(function(v){cur=v;show(v)}).catch(function(){});
+  ask(false).then(function(v){cur=v;show(v);dbg()}).catch(function(){dbg()});
   b.addEventListener('click',function(){
     puños(hecho?10:26);
     if(hecho)return;
     hecho=true;ls(LS,'1');listo();
-    ask(true).then(function(v){cur=v;show(v)}).catch(function(){if(cur!==null){cur++;show(cur)}});
+    ask(true).then(function(v){cur=v;show(v);dbg()}).catch(function(){if(cur!==null){cur++;show(cur)}else{n.hidden=false;n.textContent='¡Gracias! No se ha podido contar ahora mismo.'}dbg()});
   });
 })();
 </script>
